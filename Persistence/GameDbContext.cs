@@ -21,7 +21,6 @@ namespace Persistence
             builder.ApplyConfiguration(new GameConfiguration());
             builder.ApplyConfiguration(new GameCategoriesConfiguration());
             base.OnModelCreating(builder);
-
         }
     }
 }
