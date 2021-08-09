@@ -9,6 +9,7 @@ namespace Persistence.Configurations
          public void Configure(EntityTypeBuilder<Category> builder)
                 {
                     builder.HasKey(category => category.Id);
+                    builder.HasMany(gc => gc.IdCategoriesList).WithOne();
                 }
 
         
