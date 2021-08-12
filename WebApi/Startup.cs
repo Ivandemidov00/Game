@@ -47,7 +47,7 @@ namespace WebApi
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) ;
+            if (env.IsDevelopment());
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");

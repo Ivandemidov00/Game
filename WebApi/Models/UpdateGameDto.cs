@@ -21,4 +21,5 @@ namespace WebApi.Models
                 .ForMember(gameCommand => gameCommand.Studio,
                     opt => opt.MapFrom(gameDto => gameDto.Studio));
         }
+    }
 }

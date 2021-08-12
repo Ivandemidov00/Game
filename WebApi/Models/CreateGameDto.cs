@@ -4,7 +4,7 @@ using AutoMapper;
 
 namespace WebApi.Models
 {
-    public class CreateGameDto: IMapWith<CreateGameCommand>
+    public class CreateGameDto : IMapWith<CreateGameCommand>
     {
         public string Name { get; set; }
         public string Studio { get; set; }
@@ -17,4 +17,5 @@ namespace WebApi.Models
                 .ForMember(gameCommand => gameCommand.Studio,
                     opt => opt.MapFrom(gameDto => gameDto.Studio));
         }
+    }
 }

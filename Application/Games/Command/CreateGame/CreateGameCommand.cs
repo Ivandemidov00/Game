@@ -3,9 +3,9 @@ using MediatR;
 
 namespace Application.Games.Command.CreateGame
 {
-    public class CreateGameCommand:IRequest<Int32>
+    public class CreateGameCommand:IRequest<Guid>
     {
-        public Int32 Id;
+        public Guid Id;
         public String Name;
         public String Studio;
     }

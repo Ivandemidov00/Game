@@ -7,24 +7,25 @@ using Application.Games.Command.UpdateGame;
 using Application.Games.Queries.GetGameDetails;
 using Application.Games.Queries.GetGameList;
 using AutoMapper;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class NoteController : BaseController
+    public class GameController : BaseController
     {
         private readonly IMapper _mapper;
 
-        public NoteController(IMapper mapper) => _mapper = mapper;
+        public GameController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
         public async Task<ActionResult<GameListVm>> GetAll()
         {
             var query = new GetGameListQuery
             {
-                Id = IdentifierCase;
+                Id = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);
@@ -35,7 +36,7 @@ namespace WebApi.Controllers
         {
             var query = new GetGameDetailsQuery
             {
-                Id = id
+                Id = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);
@@ -45,7 +46,7 @@ namespace WebApi.Controllers
         public async Task<ActionResult<Guid>> Create([FromBody] CreateGameDto createNoteDto)
         {
             var command = _mapper.Map<CreateGameCommand>(createNoteDto);
-            command.Id = Id;
+            command.Id = UserId;
             var noteId = await Mediator.Send(command);
             return Ok(noteId);
         }
@@ -54,7 +55,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Update([FromBody] UpdateGameDto updateNoteDto)
         {
             var command = _mapper.Map<UpdateGameCommand>(updateNoteDto);
-            command.Id = id;
+            command.Id = UserId;
             await Mediator.Send(command);
             return NoContent();
         }
@@ -64,7 +65,7 @@ namespace WebApi.Controllers
         {
             var command = new DeleteGameCommand
             {
-                Id = id
+                Id = UserId
             };
             await Mediator.Send(command);
             return NoContent();
