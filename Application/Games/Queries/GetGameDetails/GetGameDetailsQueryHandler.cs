@@ -23,11 +23,11 @@ namespace Application.Games.Queries.GetGameDetails
         {
             var entity = await _dbContext.games
                 .FirstOrDefaultAsync(note =>
-                    note.Id == request.Id, cancellationToken);
+                    note.id == request.id, cancellationToken);
 
-            if (entity == null || entity.Id != request.Id)
+            if (entity == null || entity.id != request.id)
             {
-                throw new NotFoundException(nameof(Game), request.Id);
+                throw new NotFoundException(nameof(Game), request.id);
             }
 
             return _mapper.Map<GameDetailsVM>(entity);

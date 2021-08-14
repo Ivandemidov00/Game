@@ -10,7 +10,7 @@ namespace Persistence
         public static IServiceCollection AddPersistence(this IServiceCollection serviceCollection,
             IConfiguration configuration)
         {
-            var connectionString = configuration[""];
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
             serviceCollection.AddDbContext<GameDbContext>(options => { options.UseNpgsql(connectionString); });
             serviceCollection.AddScoped<IGameDbContext>(provider => provider.GetService<GameDbContext>());
             return serviceCollection;

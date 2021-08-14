@@ -20,7 +20,7 @@ namespace Application.Games.Command.DeleteGame
         public async Task<Unit> Handle(DeleteGameCommand request, CancellationToken cancellationToken)
         {
             var entity = await _IgameDbContext.games.FindAsync(new object[] { request.Id }, cancellationToken);
-            if (entity == null || entity.Id != request.Id)
+            if (entity == null || entity.id != request.Id)
             {
                 throw new NotFoundException(nameof(Game), request.Id);
             }

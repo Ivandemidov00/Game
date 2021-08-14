@@ -8,7 +8,7 @@ namespace Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Game> builder)
         {
-            builder.HasKey(game => game.Id);
+            builder.HasKey(game => game.id);
         }
     }
 }

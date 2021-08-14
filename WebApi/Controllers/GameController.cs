@@ -25,7 +25,7 @@ namespace WebApi.Controllers
         {
             var query = new GetGameListQuery
             {
-                Id = UserId
+                id = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);
@@ -36,7 +36,7 @@ namespace WebApi.Controllers
         {
             var query = new GetGameDetailsQuery
             {
-                Id = UserId
+                id = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

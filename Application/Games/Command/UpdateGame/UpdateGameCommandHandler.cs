@@ -21,16 +21,16 @@ namespace Application.Games.Command.UpdateGame
         public async Task<Unit> Handle(UpdateGameCommand request, CancellationToken cancellationToken)
         {
             var entity =
-                await _gameDbContext.games.FirstOrDefaultAsync(note =>
-                    note.Id == request.Id, cancellationToken);
+                await _gameDbContext.games.FirstOrDefaultAsync(game =>
+                    game.id == request.Id, cancellationToken);
 
-            if (entity == null || entity.Id != request.Id)
+            if (entity == null || entity.id != request.Id)
             {
                 throw new NotFoundException(nameof(Game), request.Id);
             }
 
-            entity.Name = request.Name;
-            entity.Studio = request.Studio;
+            entity.name = request.Name;
+            entity.studio = request.Studio;
             
             await _gameDbContext.SaveChangesAsync(cancellationToken);
 

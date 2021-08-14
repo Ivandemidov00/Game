@@ -17,15 +17,15 @@ namespace Application.Games.Command.CreateGame
         {
             var game = new Game
             {
-                Id = request.Id,
-                Name = request.Name,
-                Studio = request.Studio
+                id = request.Id,
+                name = request.Name,
+                studio = request.Studio
             };
 
             await _dbContext.games.AddAsync(game,cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return game.Id;
+            return game.id;
         }
     }
 }

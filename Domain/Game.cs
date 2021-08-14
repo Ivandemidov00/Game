@@ -5,9 +5,9 @@ namespace Domain
 {
     public class Game
     {
-        public Guid Id { get; set; }
-        public String Name { get; set; }
-        public String Studio { get; set; }
+        public Guid id { get; set; }
+        public String name { get; set; }
+        public String studio { get; set; }
         
         public List<GameCategories> IdGameCategoriesList { get; set; }
     }

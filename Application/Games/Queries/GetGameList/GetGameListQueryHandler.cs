@@ -22,7 +22,7 @@ namespace Application.Games.Queries.GetGameList
             CancellationToken cancellationToken)
         {
             var gamesQuery = await _dbContext.games
-                .Where(note => note.Id == request.Id)
+                .Where(game => game.id == request.id)
                 .ProjectTo<GameLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
