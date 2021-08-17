@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application;
 using Application.Comman.Mappings;
 using Application.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,11 +30,11 @@ namespace WebApi
                 config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
                 config.AddProfile(new AssemblyMappingProfile(typeof(IGameDbContext).Assembly));
             });
-
+            services.AddOptions();
+            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddApplication();
             services.AddPersistence(Configuration);
             services.AddControllers();
-
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy =>

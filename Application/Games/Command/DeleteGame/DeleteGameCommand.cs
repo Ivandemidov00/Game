@@ -5,6 +5,6 @@ namespace Application.Games.Command.DeleteGame
 {
     public class DeleteGameCommand:IRequest
     {
-        public  Guid Id { get; set; }
+        public  Int32 Id { get; set; }
     }
 }

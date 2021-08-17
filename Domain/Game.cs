@@ -5,7 +5,7 @@ namespace Domain
 {
     public class Game
     {
-        public Guid id { get; set; }
+        public Int32 id { get; set; }
         public String name { get; set; }
         public String studio { get; set; }
         

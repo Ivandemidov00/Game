@@ -22,11 +22,11 @@ namespace Application.Games.Queries.GetGameList
             CancellationToken cancellationToken)
         {
             var gamesQuery = await _dbContext.games
-                .Where(game => game.id == request.id)
+               // .Where(game => game.id == request.id)
                 .ProjectTo<GameLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new GameListVm { Games = gamesQuery };
+            return new GameListVm { Game = gamesQuery };
         }
     }
 }

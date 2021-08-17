@@ -5,6 +5,6 @@ namespace Application.Games.Queries.GetGameDetails
 {
     public class GetGameDetailsQuery:IRequest<GameDetailsVM>
     {
-        public Guid id { get; set; }
+        public Int32 id { get; set; }
     }
 }

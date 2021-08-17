@@ -4,6 +4,6 @@ namespace Application.Games.Queries.GetGameList
 {
     public class GameListVm
     {
-        public IList<GameLookupDto> Games { get; set; }
+        public IList<GameLookupDto> Game { get; set; }
     }
 }

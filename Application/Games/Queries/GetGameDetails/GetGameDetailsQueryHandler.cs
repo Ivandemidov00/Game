@@ -21,9 +21,8 @@ namespace Application.Games.Queries.GetGameDetails
         public async Task<GameDetailsVM> Handle(GetGameDetailsQuery request,
             CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.games
-                .FirstOrDefaultAsync(note =>
-                    note.id == request.id, cancellationToken);
+            var entity = await _dbContext.games.FirstOrDefaultAsync(game =>
+                    game.id == request.id, cancellationToken);
 
             if (entity == null || entity.id != request.id)
             {

@@ -5,6 +5,6 @@ namespace Application.Games.Queries.GetGameList
 {
     public class GetGameListQuery:IRequest<GameListVm>
     {
-        public Guid id { get; set; }
+        public Int32 id { get; set; }
     }
 }

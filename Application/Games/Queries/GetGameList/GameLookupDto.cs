@@ -7,7 +7,7 @@ namespace Application.Games.Queries.GetGameList
 {
     public class GameLookupDto : IMapWith<Game>
     {
-        public Guid id { get; set; }
+        public Int32 id { get; set; }
         public string name { get; set; }
 
         public void Mapping(Profile profile)
