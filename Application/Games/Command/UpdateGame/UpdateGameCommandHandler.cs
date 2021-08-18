@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Games.Command.UpdateGame
 {
-    public class UpdateGameCommandHandler:IRequest<UpdateGameCommand>
+    public class UpdateGameCommandHandler:IRequestHandler<UpdateGameCommand>
     {
         private readonly IGameDbContext _gameDbContext;
 

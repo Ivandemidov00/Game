@@ -66,7 +66,7 @@ namespace WebApi.Controllers
         {
             var command = new DeleteGameCommand
             {
-                Id = UserId
+                Id = id
             };
             await Mediator.Send(command);
             return NoContent();

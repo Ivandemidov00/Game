@@ -8,7 +8,7 @@ using MediatR;
 
 namespace Application.Games.Command.DeleteGame
 {
-    public class DeleteGameCommandHandler:IRequest<DeleteGameCommand>
+    public class DeleteGameCommandHandler:IRequestHandler<DeleteGameCommand>
     {
         private readonly IGameDbContext _IgameDbContext;
 
