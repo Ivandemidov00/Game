@@ -7,13 +7,13 @@ using MediatR;
 
 namespace Application.Games.Command.CreateGame
 {
-    public class CreateGameCommandHandler:IRequestHandler<CreateGameCommand,Int32>
+    public class CreateGameCommandHandler:IRequestHandler<CreateGameCommand,Guid>
     {
         private readonly IGameDbContext _dbContext;
 
         public CreateGameCommandHandler(IGameDbContext dbContext) => _dbContext = dbContext;
         
-        public async Task<Int32> Handle(CreateGameCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateGameCommand request, CancellationToken cancellationToken)
         {
             var game = new Game
             {

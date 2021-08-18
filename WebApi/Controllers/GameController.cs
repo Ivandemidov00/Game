@@ -32,12 +32,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameListVm>> Get(Int32 id)
+        public async Task<ActionResult<GameListVm>> Get(Guid id)
         {
-            var query = new GetGameDetailsQuery
+           var query = new GetGameDetailsQuery
             {
-                id = UserId
+                id = id
             };
+           
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
@@ -61,7 +62,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Int32 id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteGameCommand
             {

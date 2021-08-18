@@ -14,9 +14,10 @@ namespace WebApi.Controllers
         protected IMediator Mediator =>
             _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
 
-        internal Int32 UserId;
-        // internal Guid UserId => !User.Identity.IsAuthenticated
-        //     ? Guid.Empty
-        //     : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        //private int? i = null;
+        //internal Int32 UserId => !User.Identity.IsAuthenticated? 5: Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        internal Guid UserId => !User.Identity.IsAuthenticated
+            ? Guid.Empty
+            : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
     }
 }

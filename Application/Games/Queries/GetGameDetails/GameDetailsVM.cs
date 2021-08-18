@@ -1,12 +1,13 @@
 using System;
+using Application.Comman.Mappings;
 using AutoMapper;
 using Domain;
 
 namespace Application.Games.Queries.GetGameDetails
 {
-    public class GameDetailsVM
+    public class GameDetailsVM:IMapWith<Game>
     {
-        public Int32 id { get; set; }
+        public Guid id { get; set; }
         public String name { get; set; }
         public String studio { get; set; }
 
